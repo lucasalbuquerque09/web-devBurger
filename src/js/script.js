@@ -4,6 +4,11 @@ const btnShowAll = document.getElementById('btnShowAll');
 const btnAddDiscount = document.getElementById('btnDiscount');
 const btnAddItAllUp = document.getElementById('btnSummary');
 const btnVegan = document.getElementById('btnVegan');
+
+const showMenuMobile = document.getElementById('btn-mobile');
+const menuMobile = document.getElementById('manu-mobile');
+const overlay = document.getElementById('overlay')
+
 // função para definir o botão ativo
 function setActiveButton(activeButton) {
     [btnShowAll, btnAddDiscount, btnAddItAllUp, btnVegan].forEach((button) => {
@@ -76,7 +81,7 @@ function renderSummaryCard() {
 // event listeners para os botões
 btnShowAll?.addEventListener('click', () => {
     setActiveButton(btnShowAll);
-    renderProducts(menuOptions);
+    renderProducts();
 });
 
 btnDiscount?.addEventListener('click', () => {
@@ -91,7 +96,25 @@ btnSummary?.addEventListener('click', () => {
 
 btnVegan?.addEventListener('click', () => {
     setActiveButton(btnVegan);
-    renderProducts(menuOptions.filter((item) => item.vegan))
+    renderProducts(menuOptions.filter((item) => item.vegan)
+        .map((item) => ({ ...item, price: item.price * 0.9 })));
+
+})
+
+/* Mobile Menu */
+showMenuMobile.addEventListener('click', () => {
+    menuMobile.classList.add('activateMenu')
+    overlay.classList.add('activateMenu')
+
+})
+menuMobile.addEventListener('click', () => {
+    menuMobile.classList.remove('activateMenu')
+    overlay.classList.remove('activateMenu')
+})
+
+overlay.addEventListener('click', () => {
+    menuMobile.classList.remove('activateMenu')
+    overlay.classList.remove('activateMenu')
 })
 
 
