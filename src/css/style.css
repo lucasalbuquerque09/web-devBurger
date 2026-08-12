@@ -35,10 +35,11 @@ body {
     padding: 0 1.5rem;
     overflow: hidden;
 }
+
 a,
 button,
 i,
-ul{
+ul {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -573,6 +574,12 @@ p {
         font-size: 1.5rem;
     }
 
+    #main-container {
+        width: 100%;
+        padding: 4rem 0 5rem 0;
+        overflow: hidden;
+    }
+
     .interface {
         width: 100%;
         margin: none;
@@ -589,11 +596,10 @@ p {
     }
 
     #manu-mobile.activateMenu {
-        width: min(70vw, 340px);
+        width: min(60vw, 340px);
     }
 
     #banner {
-        min-height: 450px;
         border: none;
         border-bottom: 1px solid #9dff002d;
         border-radius: 0;
@@ -615,11 +621,7 @@ p {
 
     #banner::after {
         background-position: center;
-        opacity: .2;
-    }
-
-    #btn-banner {
-        justify-content: center;
+        opacity: .3;
     }
 
     #btn-banner button {
